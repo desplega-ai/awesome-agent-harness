@@ -31,6 +31,7 @@ From the two seminal references above:
 - [Agent Orchestrators](#agent-orchestrators)
 - [Task Runners](#task-runners)
 - [Agent Harness Frameworks](#agent-harness-frameworks)
+- [Agent Runtimes](#agent-runtimes)
 - [Coding Agents](#coding-agents)
 - [Requirements & Spec Tools](#requirements--spec-tools)
 - [Standards & Protocols](#standards--protocols)
@@ -77,7 +78,13 @@ Frameworks for building custom harnesses. Following the principle that "fewer to
 - [Harness Kit](https://github.com/deepklarity/harness-kit) — Patterns and engineering practices for building with AI agents.
 - [Desloppify](https://github.com/peteromallet/desloppify) — Agent harness focused on making AI-generated code well-engineered.
 - [Bridle](https://github.com/neiii/bridle) — TUI/CLI config manager for agent harnesses (Amp, Claude Code, OpenCode, Goose, Copilot CLI, Droid).
-- [Zylos Core](https://github.com/zylos-ai/zylos-core) — Agent infrastructure framework adding persistent memory, cron scheduling, multi-channel messaging (Telegram/Feishu), and self-maintenance capabilities to Claude Code agents.
+
+## Agent Runtimes
+
+The persistent infrastructure layer. Agent runtimes give coding agents long-running capabilities they lack natively: persistent memory, cron scheduling, multi-channel messaging, and sub-agent spawning. If orchestrators solve throughput and task runners solve issue-to-PR, runtimes solve "how does an agent stay alive and connected between tasks."
+
+- [OpenClaw](https://github.com/openclaw/openclaw) — AI agent runtime. Orchestrates agents across messaging channels with skill system, sub-agent spawning, and persistent session management.
+- [Zylos Core](https://github.com/zylos-ai/zylos-core) — Agent runtime adding persistent memory, cron scheduling, multi-channel messaging (Telegram/Feishu), and self-maintenance capabilities to Claude Code agents.
 
 ## Coding Agents
 
@@ -91,7 +98,6 @@ The execution layer. In harness engineering, the agent is a commodity — the ha
 - [Amp](https://amp.dev/) — Sourcegraph's coding agent.
 - [Cursor Agent CLI](https://www.cursor.com/) — Cursor's command-line agent mode.
 - [GitHub Copilot CLI](https://github.com/github/copilot-cli) — GitHub's CLI coding agent.
-- [OpenClaw](https://github.com/openclaw/openclaw) — AI agent runtime. Orchestrates agents across messaging channels with skill system and sub-agent spawning.
 - [Aider](https://github.com/paul-gauthier/aider) — AI pair programming in your terminal.
 
 ## Requirements & Spec Tools

@@ -1,10 +1,30 @@
 # Awesome Agent Harness [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 
-> A curated list of tools, frameworks, and resources for agent harness engineering — the discipline of orchestrating AI coding agents to plan, execute, and deliver software with human oversight.
+> A curated list of tools, frameworks, and resources for **agent harness engineering** — the discipline of designing environments, constraints, and feedback loops that make AI coding agents reliable at scale.
+
+## What is an Agent Harness?
+
+An agent harness is the infrastructure that wraps around an LLM coding agent. It's everything except the model itself: session management, context delivery, tool design, architectural enforcement, failure recovery, and human oversight.
+
+OpenAI's [Harness Engineering](https://openai.com/index/harness-engineering/) blog defined the term: *"When a software engineering team's primary job is no longer to write code, but to design environments, specify intent, and build feedback loops that allow agents to do reliable work."* Their team built 1M+ lines of production code with zero human-written lines using this approach.
+
+Anthropic's Claude Code team [discovered the same principles](https://x.com/trq212/status/2027463795355095314) from the tool design side: the harness matters more than the model. Fewer, more expressive tools beat a long menu of narrow ones. Progressive disclosure — letting the agent recursively discover context across layers — outperforms loading everything upfront. *"Designing an agent's action space is as much an art as it is a science."*
+
+## Core Principles
+
+From the two seminal references above:
+
+1. **Humans steer, agents execute** — Engineers design environments and review outcomes, not write code
+2. **Repository knowledge is the system of record** — If it's not in the repo, it doesn't exist to the agent. Slack threads, Google Docs, and tribal knowledge are invisible
+3. **AGENTS.md is a table of contents, not an encyclopedia** — Point to deeper sources of truth; don't dump everything in one file
+4. **Enforce architecture mechanically** — Custom linters, structural tests, and CI checks replace code review for invariants
+5. **Agent legibility is the goal** — Optimize code for agent readability first, human readability second
+6. **Fewer tools, more expressiveness** — Progressive disclosure and composable primitives beat sprawling toolkits
+7. **See like an agent** — Read the model's outputs, watch where it struggles, and evolve the harness accordingly
+8. **Corrections are cheap, waiting is expensive** — At high agent throughput, fix-forward beats blocking merge gates
 
 ## Contents
 
-- [How These Tools Fit Together](#how-these-tools-fit-together)
 - [Full Lifecycle Platforms](#full-lifecycle-platforms)
 - [Agent Orchestrators](#agent-orchestrators)
 - [Task Runners](#task-runners)
@@ -15,7 +35,7 @@
 - [Reference & Knowledge](#reference--knowledge)
 - [Contributing](#contributing)
 
-## How These Tools Fit Together
+## The Stack
 
 | Layer | What it does | Examples |
 |-------|-------------|----------|
@@ -41,7 +61,7 @@ Tools for running multiple coding agents in parallel with isolation.
 - [Vibe Kanban](https://github.com/BloopAI/vibe-kanban) — Kanban board for AI agents. Git worktree isolation, 10+ agent support, built-in diff review. Cloud team version available.
 - [Emdash](https://github.com/generalaction/emdash) — Open-source Agentic Development Environment (YC W26). Parallel agents in isolated worktrees, local or SSH remote.
 - [Warp](https://github.com/warpdotdev/Warp) — Agentic development environment built for coding with multiple AI agents.
-- [VibeHQ](https://github.com/VibeHQ/vibehq) — Orchestrate multiple CLI agents (Claude Code, Codex, Gemini CLI) as a company team. Contract-driven development with API spec sign-offs.
+- [VibeHQ](https://github.com/VibeHQ/vibehq) — Orchestrate multiple CLI agents (Claude Code, Codex, Gemini CLI) as a company team.
 - [Beehive](https://github.com/mbezhanov/beehive) — Multi-workspace agent orchestrator for parallel issue resolution.
 - [Agent Orchestrator](https://github.com/pkarnal/agent-orchestrator) — Lightweight orchestrator: `ao init --tracker github --agent claude-code --runtime tmux`.
 - [Oh My OpenCode](https://github.com/code-yeongyu/oh-my-opencode) — Performance optimization harness for OpenCode with 44 lifecycle hooks.
@@ -72,45 +92,47 @@ Frameworks and kits for building your own agent harness.
 
 The execution layer — these are the agents that actually write code.
 
-- [OpenCode](https://github.com/sst/opencode) — Open-source coding agent with plugin system, server mode, and SDK.
-- [Claude Code](https://code.claude.com/) — Anthropic's agentic coding tool. Supports Agent Teams (multi-agent), hooks, skills, and MCP.
+- [Claude Code](https://code.claude.com/) — Anthropic's agentic coding tool. Supports Agent Teams (multi-agent), hooks, skills, and MCP. The Claude Agent SDK powers agent loops beyond coding.
 - [Codex](https://github.com/openai/codex) — OpenAI's coding agent. Cloud and CLI modes.
+- [OpenCode](https://github.com/sst/opencode) — Open-source coding agent with plugin system, server mode, and SDK.
 - [Gemini CLI](https://github.com/google-gemini/gemini-cli) — Google's CLI coding agent.
+- [Kiro CLI](https://kiro.dev/) — AWS's CLI coding agent with spec-driven workflow.
 - [Amp](https://amp.dev/) — Sourcegraph's coding agent.
 - [Cursor Agent CLI](https://www.cursor.com/) — Cursor's command-line agent mode.
 - [GitHub Copilot CLI](https://github.com/github/copilot-cli) — GitHub's CLI coding agent.
 - [OpenClaw](https://github.com/openclaw/openclaw) — AI agent runtime. Orchestrates agents across messaging channels with skill system and sub-agent spawning.
-- [Kiro CLI](https://kiro.dev/) — AWS's CLI coding agent with spec-driven workflow.
 - [Aider](https://github.com/paul-gauthier/aider) — AI pair programming in your terminal.
 
 ## Requirements & Spec Tools
 
 Tools for the "what to build" layer — specs, requirements, and task planning.
 
+- [Kiro IDE](https://kiro.dev/) — AWS's spec-driven development IDE. Generates structured specs and manages requirements.
 - [OpenSpec](https://github.com/FissionAI/openspec) — Spec-driven development CLI. Generate structured specs from natural language.
 - [Spec Kit](https://github.com/github/spec-kit) — GitHub's spec generation toolkit.
-- [Kiro IDE](https://kiro.dev/) — AWS's spec-driven development IDE. Generates structured specs and manages requirements.
 - [agents.md](https://agents.md/) — Open standard for guiding AI coding agents with project-specific instructions.
 
 ## Standards & Protocols
 
 - [MCP (Model Context Protocol)](https://modelcontextprotocol.io/) — Open standard for connecting AI models to external tools and data sources.
-- [Kiro IDE](https://kiro.dev/) — AWS's spec-driven development IDE. Generates structured specs and manages requirements.
 - [agents.md](https://agents.md/) — Open standard for project-level agent configuration.
 - [AGENTS.md](https://openai.com/index/introducing-agents-md/) — OpenAI's convention for repository-level agent instructions.
 
 ## Reference & Knowledge
 
-Articles, talks, and guides on harness engineering practices.
+### Seminal References
+
+- [Harness Engineering: Leveraging Codex in an Agent-First World](https://openai.com/index/harness-engineering/) — OpenAI's defining blog post. How they built 1M+ lines with zero human-written code. Introduced the concepts of repository knowledge as system of record, progressive context disclosure, and mechanical architecture enforcement.
+- [Lessons from Building Claude Code: Seeing Like an Agent](https://x.com/trq212/status/2027463795355095314) — Thariq (Claude Code lead) on designing agent action spaces. Fewer tools beat more tools. Progressive disclosure outperforms upfront loading. The harness must evolve with the model.
+- [Building Effective Agents](https://www.anthropic.com/research/building-effective-agents) — Anthropic's guide: simple, composable patterns beat complex frameworks.
 
 ### Articles
 
-- [Harness Engineering: Leveraging Codex in an Agent-First World](https://openai.com/index/harness-engineering/) — OpenAI's seminal blog post. How they built 1M+ lines of code with zero human-written code.
 - [Building an AI-Native Engineering Team](https://developers.openai.com/codex/guides/build-ai-native-engineering-team/) — OpenAI's guide to structuring teams around AI-first workflows.
 - [The Emerging "Harness Engineering" Playbook](https://www.ignorance.ai/p/the-emerging-harness-engineering) — How OpenAI is retooling engineering teams.
-- [Harness Engineering: How to Supervise Code You Can't Read](https://decision.substack.com/p/harness-engineering-how-to-supervise) — Practical supervision patterns.
 - [Conductors to Orchestrators: The Future of Agentic Coding](https://www.oreilly.com/radar/conductors-to-orchestrators-the-future-of-agentic-coding/) — O'Reilly overview of the orchestration landscape.
 - [My LLM Coding Workflow Going into 2026](https://medium.com/@addyosmani/my-llm-coding-workflow-going-into-2026-52fe1681325e) — Addy Osmani's specs-first approach.
+- [How the Claude Code Team Designs Agent Tools](https://www.anup.io/how-the-claude-code-team-designs-agent-tools/) — Analysis of progressive disclosure and tool subtraction in agent design.
 
 ### Talks
 
@@ -125,9 +147,6 @@ Articles, talks, and guides on harness engineering practices.
 
 ## Contributing
 
-Contributions welcome! Please read the [contributing guidelines](CONTRIBUTING.md) before submitting a PR.
-
-When suggesting additions, include:
+Contributions welcome! When suggesting additions, include:
 - A one-line description of what the tool does
 - Why it belongs in this list (which layer of the stack it addresses)
-

@@ -25,6 +25,8 @@ From the two seminal references above:
 
 ## Contents
 
+- [What is an Agent Harness?](#what-is-an-agent-harness)
+- [Core Principles](#core-principles)
 - [Full Lifecycle Platforms](#full-lifecycle-platforms)
 - [Agent Orchestrators](#agent-orchestrators)
 - [Task Runners](#task-runners)
@@ -34,18 +36,6 @@ From the two seminal references above:
 - [Standards & Protocols](#standards--protocols)
 - [Reference & Knowledge](#reference--knowledge)
 - [Contributing](#contributing)
-
-## The Stack
-
-| Layer | What it does | Examples |
-|-------|-------------|----------|
-| **Human Oversight** | Approve, review, set priorities | PR review, proposal approval |
-| **Planning & Requirements** | Idea → Spec → Task DAG | Chorus, OpenSpec, Kiro IDE |
-| **Orchestration** | Parallel execution, isolation | Vibe Kanban, Emdash, Symphony |
-| **Coding Agents** | Write and test code | Claude Code, Codex, OpenCode |
-| **Infrastructure** | Standards, protocols, sandboxing | MCP, agents.md, git worktrees |
-
-Most tools cover one layer. The challenge is connecting them.
 
 ## Full Lifecycle Platforms
 

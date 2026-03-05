@@ -51,7 +51,7 @@ Most tools cover one layer. The challenge is connecting them.
 
 Tools that span from requirements to delivery with human-in-the-loop approval.
 
-- [Chorus](https://github.com/Chorus-AIDLC/Chorus) — An agent harness — the infrastructure that wraps around LLM agents to manage session lifecycle, task state, sub-agent orchestration, observability, and failure recovery. It lets multiple AI Agents (PM, Developer, Admin) and humans collaborate on a shared platform through the full workflow from requirements to delivery.
+- [Chorus](https://github.com/Chorus-AIDLC/Chorus) — An agent harness that manages the full lifecycle above the coding agent: session state, task DAGs with dependency tracking, sub-agent orchestration, and human approval gates. Three agent roles (PM, Developer, Admin) collaborate through Idea → Proposal → Document + Task DAG → Execute → Verify. Implements "humans steer, agents execute" — agents propose work and break down requirements, humans review and approve before execution begins.
 - [GitHub Agentic Workflows](https://github.blog/ai-and-ml/automate-repository-tasks-with-github-agentic-workflows/) — GitHub Actions with coding agent engines (Copilot, Claude Code, Codex). Issue → agent → PR with sandboxing and permissions.
 
 ## Agent Orchestrators

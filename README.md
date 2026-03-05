@@ -77,6 +77,7 @@ Frameworks for building custom harnesses. Following the principle that "fewer to
 - [Harness Kit](https://github.com/deepklarity/harness-kit) — Patterns and engineering practices for building with AI agents.
 - [Desloppify](https://github.com/peteromallet/desloppify) — Agent harness focused on making AI-generated code well-engineered.
 - [Bridle](https://github.com/neiii/bridle) — TUI/CLI config manager for agent harnesses (Amp, Claude Code, OpenCode, Goose, Copilot CLI, Droid).
+- [Zylos Core](https://github.com/zylos-ai/zylos-core) — Agent infrastructure framework adding persistent memory, cron scheduling, multi-channel messaging (Telegram/Feishu), and self-maintenance capabilities to Claude Code agents.
 
 ## Coding Agents
 

@@ -17,20 +17,13 @@
 
 ## How These Tools Fit Together
 
-```
-┌─────────────────────────────────────────────────────────┐
-│                   Human Oversight                        │
-├─────────────────────────────────────────────────────────┤
-│  Planning & Requirements    │  Review & Approval         │
-│  (Idea → Spec → Task DAG)  │  (PR Review → Merge)       │
-├─────────────────────────────────────────────────────────┤
-│              Orchestration & Scheduling                   │
-│  (Parallel execution, worktree isolation, CI feedback)   │
-├─────────────────────────────────────────────────────────┤
-│              Coding Agents (Execution)                    │
-│  (Claude Code, Codex, Gemini CLI, OpenCode, ...)        │
-└─────────────────────────────────────────────────────────┘
-```
+| Layer | What it does | Examples |
+|-------|-------------|----------|
+| **Human Oversight** | Approve, review, set priorities | PR review, proposal approval |
+| **Planning & Requirements** | Idea → Spec → Task DAG | Chorus, OpenSpec, Kiro IDE |
+| **Orchestration** | Parallel execution, isolation | Vibe Kanban, Emdash, Symphony |
+| **Coding Agents** | Write and test code | Claude Code, Codex, OpenCode |
+| **Infrastructure** | Standards, protocols, sandboxing | MCP, agents.md, git worktrees |
 
 Most tools cover one layer. The challenge is connecting them.
 

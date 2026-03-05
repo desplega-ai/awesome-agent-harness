@@ -38,7 +38,7 @@ Most tools cover one layer. The challenge is connecting them.
 
 Tools that span from requirements to delivery with human-in-the-loop approval.
 
-- [Chorus](https://github.com/Chorus-AIDLC/Chorus) — AI-DLC platform: idea → elaboration → proposal → task DAG → agent execution → human verification. Agents propose, humans approve. Works with any MCP-compatible agent.
+- [Chorus](https://github.com/Chorus-AIDLC/Chorus) — AI Agent & Human Collaboration Platform. Implements the AI-DLC methodology with three agent roles (PM, Developer, Admin) collaborating through Idea → Proposal → Document + Task DAG → Execute → Verify. Core philosophy: Reversed Conversation — AI proposes, humans verify.
 - [GitHub Agentic Workflows](https://github.blog/ai-and-ml/automate-repository-tasks-with-github-agentic-workflows/) — GitHub Actions with coding agent engines (Copilot, Claude Code, Codex). Issue → agent → PR with sandboxing and permissions.
 
 ## Agent Orchestrators

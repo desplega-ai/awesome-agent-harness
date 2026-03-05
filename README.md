@@ -56,10 +56,10 @@ Tools that span from requirements to delivery with human-in-the-loop approval.
 
 ## Agent Orchestrators
 
-Tools for running multiple coding agents in parallel with isolation.
+Orchestrators solve the throughput problem: at high agent velocity, you need parallel execution with worktree isolation so agents don't step on each other. As OpenAI found, "corrections are cheap, waiting is expensive" — these tools maximize concurrent agent throughput.
 
-- [Vibe Kanban](https://github.com/BloopAI/vibe-kanban) — Kanban board for AI agents. Git worktree isolation, 10+ agent support, built-in diff review. Cloud team version available.
-- [Emdash](https://github.com/generalaction/emdash) — Open-source Agentic Development Environment (YC W26). Parallel agents in isolated worktrees, local or SSH remote.
+- [Vibe Kanban](https://github.com/BloopAI/vibe-kanban) — Kanban-based orchestrator with git worktree isolation per agent. Supports 10+ coding agents. Enforces the "one agent, one worktree" pattern that keeps parallel execution clean.
+- [Emdash](https://github.com/generalaction/emdash) — Open-source Agentic Development Environment (YC W26). Runs parallel agents in isolated worktrees, locally or over SSH — making the "corrections are cheap" principle practical for remote teams.
 - [Warp](https://github.com/warpdotdev/Warp) — Agentic development environment built for coding with multiple AI agents.
 - [VibeHQ](https://github.com/VibeHQ/vibehq) — Orchestrate multiple CLI agents (Claude Code, Codex, Gemini CLI) as a company team.
 - [Beehive](https://github.com/mbezhanov/beehive) — Multi-workspace agent orchestrator for parallel issue resolution.
@@ -70,9 +70,9 @@ Tools for running multiple coding agents in parallel with isolation.
 
 ## Task Runners
 
-Tools that automate the issue → code → PR pipeline.
+Task runners bridge the gap between issue trackers and coding agents. They embody the "humans steer, agents execute" principle: a human (or PM agent) creates the issue, the runner spawns an agent, and the output is a PR ready for review.
 
-- [Symphony](https://github.com/openai/symphony) — OpenAI's daemon that polls Linear, spawns Codex agents per issue, and opens PRs. The reference implementation of harness engineering.
+- [Symphony](https://github.com/openai/symphony) — OpenAI's reference implementation of harness engineering. A daemon that polls Linear issues, spawns isolated Codex agents per task, and delivers PRs. Embodies "humans steer, agents execute" at scale.
 - [Linear Coding Agent Harness](https://github.com/coleam00/Linear-Coding-Agent-Harness) — Linear → autonomous coding agent → PR pipeline.
 - [GitHub Copilot Coding Agent](https://github.blog/ai-and-ml/github-copilot/whats-new-with-github-copilot-coding-agent/) — Built-in GitHub issue → Copilot agent → PR.
 - [Axon](https://github.com/axon-ai/axon) — Kubernetes-native framework. Apply a Task CRD, get back a PR and cost in USD. TaskSpawner watches GitHub Issues.
@@ -80,9 +80,9 @@ Tools that automate the issue → code → PR pipeline.
 
 ## Agent Harness Frameworks
 
-Frameworks and kits for building your own agent harness.
+Frameworks for building custom harnesses. Following the principle that "fewer tools, more expressiveness" beats sprawling toolkits, these provide composable primitives rather than opinionated workflows.
 
-- [Deep Agents](https://github.com/langchain-ai/deepagents) — Agent harness built on LangChain/LangGraph with planning tool, filesystem backend, and subagent spawning.
+- [Deep Agents](https://github.com/langchain-ai/deepagents) — Agent harness built on LangChain/LangGraph. Implements progressive disclosure through planning tools and subagent spawning — agents discover context layer by layer rather than loading everything upfront.
 - [Gambit](https://github.com/bolt-foundry/gambit) — Framework for building, running, and verifying LLM workflows.
 - [Harness Kit](https://github.com/deepklarity/harness-kit) — Patterns and engineering practices for building with AI agents.
 - [Desloppify](https://github.com/peteromallet/desloppify) — Agent harness focused on making AI-generated code well-engineered.
@@ -90,11 +90,11 @@ Frameworks and kits for building your own agent harness.
 
 ## Coding Agents
 
-The execution layer — these are the agents that actually write code.
+The execution layer. In harness engineering, the agent is a commodity — the harness is the differentiator. These agents write code; everything above them determines whether that code is useful.
 
-- [Claude Code](https://code.claude.com/) — Anthropic's agentic coding tool. Supports Agent Teams (multi-agent), hooks, skills, and MCP. The Claude Agent SDK powers agent loops beyond coding.
+- [Claude Code](https://code.claude.com/) — Anthropic's coding agent. The team's own harness pioneered "seeing like an agent" — progressive disclosure via skill files, fewer composable tools over many narrow ones. Agent Teams enables multi-agent coordination. The Claude Agent SDK extends the harness beyond coding.
 - [Codex](https://github.com/openai/codex) — OpenAI's coding agent. Cloud and CLI modes.
-- [OpenCode](https://github.com/sst/opencode) — Open-source coding agent with plugin system, server mode, and SDK.
+- [OpenCode](https://github.com/sst/opencode) — Open-source coding agent with a plugin system (44 lifecycle hooks), server mode HTTP API, and TypeScript SDK. The most extensible harness integration point for custom workflows.
 - [Gemini CLI](https://github.com/google-gemini/gemini-cli) — Google's CLI coding agent.
 - [Kiro CLI](https://kiro.dev/) — AWS's CLI coding agent with spec-driven workflow.
 - [Amp](https://amp.dev/) — Sourcegraph's coding agent.
@@ -105,12 +105,12 @@ The execution layer — these are the agents that actually write code.
 
 ## Requirements & Spec Tools
 
-Tools for the "what to build" layer — specs, requirements, and task planning.
+The planning layer addresses the biggest harness gap: agents can write code, but someone has to decide what to build. "Repository knowledge is the system of record" — these tools generate the specs and requirements that agents consume.
 
 - [Kiro IDE](https://kiro.dev/) — AWS's spec-driven development IDE. Generates structured specs and manages requirements.
 - [OpenSpec](https://github.com/FissionAI/openspec) — Spec-driven development CLI. Generate structured specs from natural language.
 - [Spec Kit](https://github.com/github/spec-kit) — GitHub's spec generation toolkit.
-- [agents.md](https://agents.md/) — Open standard for guiding AI coding agents with project-specific instructions.
+- [agents.md](https://agents.md/) — Open standard for project-level agent instructions. Following the principle that "AGENTS.md is a table of contents, not an encyclopedia" — it should point to deeper sources of truth.
 
 ## Standards & Protocols
 

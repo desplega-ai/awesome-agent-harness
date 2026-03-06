@@ -34,7 +34,6 @@ From the two seminal references above:
 - [Agent Runtimes](#agent-runtimes)
 - [Coding Agents](#coding-agents)
 - [Requirements & Spec Tools](#requirements--spec-tools)
-- [Design-to-Code Harness](#design-to-code-harness)
 - [Standards & Protocols](#standards--protocols)
 - [Reference & Knowledge](#reference--knowledge)
 - [Contributing](#contributing)
@@ -109,13 +108,11 @@ The planning layer addresses the biggest harness gap: agents can write code, but
 - [OpenSpec](https://github.com/FissionAI/openspec) — Spec-driven development CLI. Generate structured specs from natural language.
 - [Spec Kit](https://github.com/github/spec-kit) — GitHub's spec generation toolkit.
 - [agents.md](https://agents.md/) — Open standard for project-level agent instructions. Following the principle that "AGENTS.md is a table of contents, not an encyclopedia" — it should point to deeper sources of truth.
-
-## Design-to-Code Harness
+- [Pencil](https://pencil.dev/) — MCP-enabled design canvas inside VSCode/Cursor. Design files live in the repo under Git version control, bridging visual spec to code generation. Closed source.
+- [Open Pencil](https://github.com/nicepkg/open-pencil) — Open-source AI-native design editor (MIT). 75+ tools and an MCP server let coding agents read/write .fig files headlessly.
 
 Visual design tools that constrain agent output by providing design files as executable specs. Instead of free-form code generation, agents "build to blueprint" — the design file is the harness.
 
-- [Pencil](https://pencil.dev/) — MCP-enabled design canvas inside VSCode/Cursor. Design files live in the repo under Git version control, and agents read them via MCP to generate matching HTML/CSS/React code. Closed source.
-- [Open Pencil](https://github.com/nicepkg/open-pencil) — Open-source AI-native design editor (MIT). 75+ tools and an MCP server let coding agents read/write .fig files headlessly.
 
 ## Standards & Protocols
 

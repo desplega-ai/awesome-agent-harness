@@ -109,7 +109,7 @@ The planning layer addresses the biggest harness gap: agents can write code, but
 - [Spec Kit](https://github.com/github/spec-kit) — GitHub's spec generation toolkit.
 - [agents.md](https://agents.md/) — Open standard for project-level agent instructions. Following the principle that "AGENTS.md is a table of contents, not an encyclopedia" — it should point to deeper sources of truth.
 - [Pencil](https://pencil.dev/) — MCP-enabled design canvas inside VSCode/Cursor. Design files live in the repo under Git version control, bridging visual spec to code generation. Closed source.
-- [Open Pencil](https://github.com/nicepkg/open-pencil) — Open-source AI-native design editor (MIT). 75+ tools and an MCP server let coding agents read/write .fig files headlessly.
+- [Open Pencil](https://github.com/open-pencil/open-pencil) — Open-source AI-native design editor (MIT). 75+ tools and an MCP server let coding agents read/write .fig files headlessly.
 
 ## Standards & Protocols
 
